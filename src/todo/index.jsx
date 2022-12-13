@@ -1,3 +1,4 @@
+// using functional component method
 import React, { useState, useEffect, useRef } from 'react';
 import './todo.css';
 import TodoFilter from './todoFilter';
