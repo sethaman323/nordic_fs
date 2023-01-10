@@ -1,8 +1,17 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+
+import React, { useContext } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
+import { AuthContext } from '../context/authContext';
 
 function MainLayout() {
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+  if (!user) {
+    return navigate('/auth');
+  }
+
   return (
     <>
       <Header />
@@ -14,4 +23,3 @@ function MainLayout() {
 }
 
 export default MainLayout;
-
